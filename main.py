@@ -1,7 +1,8 @@
 import telegram
 from fastapi import FastAPI
-from mybot import mybot, TOKEN
+
 from models import Message
+from mybot import TOKEN, send_message, mybot
 
 app = FastAPI()
 bot: telegram.Bot = mybot()
@@ -13,6 +14,6 @@ async def read_root():
 
 
 @app.post(f'/{TOKEN}/send')
-async def send(msg: Message):
-    bot.send_message(msg.chat_id, msg.text)
+async def send(message: Message):
+    send_message(bot, message)
     return {"message": "send", "status": 200}

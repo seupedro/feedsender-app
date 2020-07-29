@@ -12,7 +12,8 @@
 # below:
 .git
 .gitignore
-
+arquitecture.png
+README.md
 
 #Python
 venv/
