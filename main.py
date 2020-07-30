@@ -13,7 +13,7 @@ async def read_root():
     return {"Async": "World"}
 
 
-@app.post(f'/{TOKEN}/send')
+@app.post(f'/{TOKEN}/send_message')
 async def send(message: Message):
     send_message(bot, message)
     return {"message": "send", "status": 200}
